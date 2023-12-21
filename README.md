@@ -1,11 +1,10 @@
-# $It Starts With One
+# It Starts With One
 
-A simple script to maintain consistent configurations between the various projects I make.
+Simple scripts for creating new projects with consistent configurations.
 
 ## Usage
 
-To set up a new project, run the `create.sh` script with the project name as an argument:
+Run `create.sh` with your project name as an argument:
 
 ```shellscript
-./create.sh my_project
-```
+./create.sh project_name
