@@ -50,7 +50,8 @@ pip install poetry
 poetry init --quiet --name "$project_name" --license "GNU GPLv3" --description "$project_description"
 poetry add --group dev ruff pre-commit pylint pytest
 
-echo "
+cat <<EOF >>pyproject.toml
+
 [tool.ruff]
 line-length = 120
 
@@ -65,7 +66,7 @@ ignore = ["ANN101", "ANN102", "N804"]
 "test_*.py" = ["S101", "INP001"]
 # S101 - assert - Assert statements are fine in tests
 # INP001 - implicit-namespace-package - Tests are not packages and should not have __init__.py files
-" >>pyproject.toml
+EOF
 
 # Install pre-commit hooks
 pre-commit install
