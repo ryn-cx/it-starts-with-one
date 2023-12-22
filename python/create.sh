@@ -41,7 +41,7 @@ source .venv/bin/activate
 # Install and configure Poetry
 pip install poetry
 poetry init --quiet --name "$project_name" --license "GNU GPLv3" --description "$project_description"
-poetry add --group dev ruff pre-commit pylint flake8 pytest
+poetry add --group dev ruff pre-commit pylint pytest
 
 # Install pre-commit hooks
 pre-commit install
