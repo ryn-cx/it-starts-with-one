@@ -1,7 +1,7 @@
 pdm init --license AGPL-3.0-or-later
 pdm add -d ruff pylint pre-commit pytest pylint-pytest pytest-cov
 
-# Configure ruff
+# Configure ruff.
 cat <<EOL >>"pyproject.toml"
 # Configure ruff
 [tool.ruff.lint]
@@ -34,7 +34,7 @@ convention = "google"
 # S101: assert - Using asserts in tests should be allowed
 EOL
 
-# Create pre-commit config
+# Create pre-commit config.
 cat >.pre-commit-config.yaml <<EOL
 repos:
   - repo: "https://github.com/pre-commit/pre-commit-hooks"
@@ -69,7 +69,7 @@ repos:
       - id: ruff-format
 EOL
 
-# Configure tests for VSCode
+# Configure tests for VSCode.
 mkdir -p .vscode
 cat <<EOL > .vscode/settings.json
 {
@@ -87,7 +87,7 @@ EOL
 # always be the newest version when making a new project.
 ./.venv/bin/pre-commit autoupdate
 
-# Configure pylint
+# Configure pylint.
 cat >.pylintrc <<EOL
 [MASTER]
 ; Official plugin for using pylint with pytest
@@ -103,3 +103,9 @@ EOL
 # Prepend .gitignore to include .DS_Store: https://stackoverflow.com/a/10587853
 sed -i.old '1s;^;# Mac OS\n.DS_Store\n\n;' .gitignore
 rm .gitignore.old
+
+# Dynamically find the main folder for the project in src
+folder_path=$(realpath src/*)
+
+# Create the py.typed file so type hints are used if the project is imported.
+touch "$folder_path/py.typed"
