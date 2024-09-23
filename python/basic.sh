@@ -83,9 +83,10 @@ cat <<EOL > .vscode/settings.json
 }
 EOL
 
-# pre-commit versions are hard coded into the file, update them so they will
-# always be the newest version when making a new project.
+# pre-commit versions are hard coded into the file, so they should be updated
+# when a new project is made. After updating it can then be installed.
 ./.venv/bin/pre-commit autoupdate
+./.venv/bin/pre-commit install
 
 # Configure pylint.
 cat >.pylintrc <<EOL
@@ -109,6 +110,3 @@ folder_path=$(realpath src/*)
 
 # Create the py.typed file so type hints are used if the project is imported.
 touch "$folder_path/py.typed"
-
-# Enable pre-commit
-pre-commit install
