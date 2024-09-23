@@ -109,3 +109,6 @@ folder_path=$(realpath src/*)
 
 # Create the py.typed file so type hints are used if the project is imported.
 touch "$folder_path/py.typed"
+
+# Enable pre-commit
+pre-commit install
