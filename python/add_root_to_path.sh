@@ -1,4 +1,4 @@
-# Dynamically find the python folder in thr .venv folder
+# Dynamically find the python folder in the .venv folder
 folder_path=$(realpath .venv/lib/python*)
 
 # Get the path for root.pth which will be created to modify the PYTHONPATH
