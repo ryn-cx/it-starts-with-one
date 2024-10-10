@@ -95,10 +95,11 @@ cat >.pylintrc <<EOL
 load-plugins=pylint_pytest
 
 [MESSAGES CONTROL]
-disable=C0115, C0116, C0301
+disable=C0115, C0116, C0301, W0612
 ; C0115: missing-class-docstring - Ruff makes this redundant
 ; C0116: missing-function-docstring - Ruff makes this redundant
 ; C0301: line-too-long - Ruff makes this redundant
+; W0612: unused-variable - Ruff makes this redundant
 EOL
 
 # Prepend .gitignore to include .DS_Store: https://stackoverflow.com/a/10587853
