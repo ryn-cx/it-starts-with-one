@@ -185,13 +185,6 @@ class PythonProject(BaseSettings, cli_parse_args=True, cli_enforce_required=True
             readme_text += f"{self.description}\n"
         (self._project_path() / "README.md").write_text(readme_text)
 
-    def configure_pylint(self) -> None:
-        """Disable redundant pylint rules."""
-        logger.info("Disabling redundant pylint rules")
-        redundant_rules_path = self._files_path() / "pylint.toml"
-        redundant_rules_string = redundant_rules_path.read_text()
-        self._append_to_file(self._pyproject_toml_path(), redundant_rules_string)
-
 
 if __name__ == "__main__":
     # Settings automatically gets arguments from sys.argv so the error can be
@@ -203,5 +196,4 @@ if __name__ == "__main__":
     settings.install_development_dependencies()  # Relies on initialize_uv
     settings.configure_precommit()  # Relies on install_development_dependencies
     settings.configure_ruff()  # Relies on initialize_uv
-    settings.configure_pylint()  # Relies on initialize_uv
     settings.update_readme()  # Relies on create_project_folder
