@@ -18,7 +18,11 @@ ignore = [
     "D105",
     "D106",
     "D107",
-    #
+
+    # Allow TODO comments.
+    "TD002",
+    "TD003",
+    "FIX002",
 ]
 
 [tool.ruff.lint.pydocstyle]
